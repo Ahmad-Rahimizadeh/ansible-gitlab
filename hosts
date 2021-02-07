@@ -1,0 +1,5 @@
+[gitlab]
+<host_ip> ansible_host=<host_ip> ansible_user=root
+<host_ip> ansible_host=<host_ip> ansible_user=root
+<host_ip> ansible_host=<host_ip> ansible_user=root
+#add as many hosts as you need
