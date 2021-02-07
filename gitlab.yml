@@ -1,0 +1,21 @@
+- hosts: all
+  become: yes
+  tasks:
+          - name: Install dependencies
+            apt:
+                    name: '{{ item }}'
+                    state: present
+                    update_cache: True
+            with_items:
+                  - curl
+                  - ca-certificates
+                  - tzdata
+          
+          - name: Add the GitLab package repository                       
+            shell: curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh && bash script.deb.sh
+                                           
+          - name: Install gitlab-ce
+            apt:
+                    name: gitlab-ce
+                    state: present
+                    update_cache: True
